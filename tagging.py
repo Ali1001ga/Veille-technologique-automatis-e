@@ -5,7 +5,8 @@ CATEGORIES = {
     "Cloud": ["aws", "azure", "gcp", "cloud", "serverless"],
     "Data": ["pandas", "sql", "data engineer", "etl", "python", "analytics", "warehouse", "spark"],
     "DevOps": ["docker", "kubernetes", "ci/cd", "devops", "terraform", "pipeline"],
-    "AI": ["ai", "machine learning", "llm", "gpt", "neural", "nlp", "ml model", "language model"]
+    "AI": ["ai", "machine learning", "llm", "gpt", "neural", "nlp", "ml model", "language model"],
+    "Cybersecurity": ["cybersecurity", "cybersécurité", "security", "sécurité", "pentest", "firewall", "vulnerability", "encryption"]
 }
 
 def find_categories(text):

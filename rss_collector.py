@@ -11,7 +11,7 @@ FEEDS = {
     "medium": "https://medium.com/feed/tag/technology",
     "medium_cloud": "https://medium.com/feed/tag/cloud-computing",
     "medium_ai": "https://medium.com/feed/tag/artificial-intelligence",
-    "infoq": "https://feed.infoq.com/RSS/articles/"
+    "infoq": "https://feed.infoq.com/"
 }
 
 def clean_html(text):
