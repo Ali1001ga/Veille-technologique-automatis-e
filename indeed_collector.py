@@ -85,9 +85,18 @@ def scrape_indeed(query="informatique", location="Maroc", base_url="https://ma.i
 
 
 if __name__ == "__main__":
-    job_data = scrape_indeed(pages=3)
-    if job_data:
-        new_df = pd.DataFrame(job_data)
+    import time as t
+    QUERIES = ["informatique", "développeur", "data", "devops", "cybersécurité"]
+    all_jobs = []
+
+    for q in QUERIES:
+        print(f"\n=== Recherche: {q} ===")
+        jobs = scrape_indeed(query=q, location="Maroc", pages=2)
+        all_jobs.extend(jobs)
+        t.sleep(random.uniform(5, 8))
+
+    if all_jobs:
+        new_df = pd.DataFrame(all_jobs)
         if os.path.exists("indeed_jobs.csv"):
             existing_df = pd.read_csv("indeed_jobs.csv")
             existing_count = len(existing_df)
@@ -97,7 +106,7 @@ if __name__ == "__main__":
             combined_df = new_df
 
         combined_df = combined_df.drop_duplicates(subset="title")
-        print(f"[+] {existing_count} existing + new postings -> {len(combined_df)} total unique")
+        print(f"\n[+] {existing_count} existing + new postings -> {len(combined_df)} total unique")
         combined_df.to_csv("indeed_jobs.csv", index=False)
     else:
         print("[-] No data extracted.")
